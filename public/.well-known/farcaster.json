@@ -7,15 +7,20 @@
   "frame": {
     "version": "next",
     "name": "Base Builder Score",
-    "homeUrl": "https://base-builder-score.com",
+    "homeUrl": "https://app-a2b5db08-2wgc.vercel.app",
     "iconUrl": "https://base-builder-score.com/icon.png",
     "splashImageUrl": "https://base-builder-score.com/splash.png",
     "splashBackgroundColor": "#0a1929",
-    "webhookUrl": "https://base-builder-score.com/api/webhook",
+    "webhookUrl": "https://app-a2b5db08-2wgc.vercel.app/api/webhook",
     "subtitle": "Track trusted Base builders",
     "description": "Discover, track, and support the most trusted builders on Base and Farcaster with transparent trust scores.",
     "primaryCategory": "social",
-    "tags": ["base", "builders", "trust", "farcaster"],
+    "tags": [
+      "base",
+      "builders",
+      "trust",
+      "farcaster"
+    ],
     "heroImageUrl": "https://base-builder-score.com/hero.png",
     "tagline": "CoinMarketCap for Base Creators",
     "ogTitle": "Base Builder Score",
