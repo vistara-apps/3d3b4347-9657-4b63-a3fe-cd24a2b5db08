@@ -1,19 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Coinbase Theme - Dark Navy */
-  --color-bg: #0a1929;
-  --color-fg: #e3f2fd;
-  --color-surface: #132f4c;
-  --color-primary: #0052ff;
-  --color-accent: #1976d2;
-  --color-success: #4caf50;
-  --color-warning: #ff9800;
-  --color-danger: #f44336;
+  /* Terminal Retro-Futuristic Theme */
+  --color-bg: #000000;
+  --color-fg: #00ff41;
+  --color-surface: #0d1117;
+  --color-primary: #00ff41;
+  --color-accent: #00d4ff;
+  --color-success: #00ff41;
+  --color-warning: #ffff00;
+  --color-danger: #ff0055;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #b0bec5;
+  --color-text-secondary: #8b949e;
+  --glow-color: #00ff41;
 }
 
 * {
@@ -31,11 +34,10 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0 0 2px var(--glow-color);
 }
 
 a {
@@ -66,4 +68,47 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent);
+}
+
+/* Terminal effects */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.terminal-glow {
+  text-shadow: 
+    0 0 5px var(--glow-color),
+    0 0 10px var(--glow-color),
+    0 0 20px var(--glow-color);
+}
+
+.terminal-border {
+  box-shadow: 
+    0 0 10px rgba(0, 255, 65, 0.3),
+    inset 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(transparent, var(--glow-color), transparent);
+  opacity: 0.3;
+  animation: scan 8s linear infinite;
+  pointer-events: none;
+  z-index: 50;
 }
