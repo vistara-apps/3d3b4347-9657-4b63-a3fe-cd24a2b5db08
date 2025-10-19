@@ -1,0 +1,25 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjkxNTIsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgwMmVmNzkwRGQ3OTkzQTM1ZkQ4NDdDMDUzRURkQUU5NDBEMDU1NTk2In0",
+    "payload": "eyJkb21haW4iOiJiYXNlLWJ1aWxkZXItc2NvcmUuY29tIn0",
+    "signature": "MHgxMGQwZGU4ZGYwZDUwZTdmMGIxN2YxMTU2NDI1MjRmZTY0MTUyZGU4ZGU1MWU0MThiYjU4ZjVmZmQxYjRjNDBiNGVlZTRhNDcwNmVmNjhlMzQ0ZGQ5MDBkYmQyMmNlMmVlZGY5ZGQ0N2JlNWRmNzMwYzUxNjE4OWVjZDJjY2Y0MDFj"
+  },
+  "frame": {
+    "version": "next",
+    "name": "Base Builder Score",
+    "homeUrl": "https://base-builder-score.com",
+    "iconUrl": "https://base-builder-score.com/icon.png",
+    "splashImageUrl": "https://base-builder-score.com/splash.png",
+    "splashBackgroundColor": "#0a1929",
+    "webhookUrl": "https://base-builder-score.com/api/webhook",
+    "subtitle": "Track trusted Base builders",
+    "description": "Discover, track, and support the most trusted builders on Base and Farcaster with transparent trust scores.",
+    "primaryCategory": "social",
+    "tags": ["base", "builders", "trust", "farcaster"],
+    "heroImageUrl": "https://base-builder-score.com/hero.png",
+    "tagline": "CoinMarketCap for Base Creators",
+    "ogTitle": "Base Builder Score",
+    "ogDescription": "Discover, track, and support the most trusted builders on Base and Farcaster",
+    "ogImageUrl": "https://base-builder-score.com/og.png"
+  }
+}
