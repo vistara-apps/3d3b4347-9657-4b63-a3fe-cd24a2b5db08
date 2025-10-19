@@ -20,8 +20,8 @@ export function TrustScoreBadge({ score, category }: TrustScoreBadgeProps) {
   };
 
   return (
-    <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border ${getColorClass()}`}>
-      <span className="font-semibold">$.{score.toFixed(score < 1 ? 2 : 1)}</span>
+    <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded border-2 ${getColorClass()} font-mono font-bold terminal-glow`}>
+      <span>$.{score.toFixed(score < 1 ? 2 : 1)}</span>
     </div>
   );
 }

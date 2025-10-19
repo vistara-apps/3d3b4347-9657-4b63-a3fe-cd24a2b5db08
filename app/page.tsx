@@ -148,15 +148,21 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-bg p-4 md:p-8">
+    <main className="min-h-screen bg-bg p-4 md:p-8 scan-line">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-text-primary mb-2">
-            CoinMarketCap for Base Creators
-          </h1>
-          <p className="text-text-secondary">
-            Discover, track, and support the most trusted builders on Base and Farcaster
+        {/* Terminal Header */}
+        <div className="mb-8 terminal-border bg-surface border-2 border-primary/40 p-6 rounded-lg">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-primary text-2xl animate-pulse">█</span>
+            <h1 className="text-3xl md:text-4xl font-bold text-primary font-mono terminal-glow">
+              {'>'} BASE_BUILDER_TERMINAL
+            </h1>
+          </div>
+          <p className="text-text-secondary font-mono text-sm">
+            {'>'} TRACKING_VERIFIED_BUILDERS_ON_BASE_MAINNET | STATUS: <span className="text-success">ONLINE</span>
+          </p>
+          <p className="text-text-secondary/60 font-mono text-xs mt-2">
+            SYSTEM_VERSION: 2.0.1 | PROTOCOL: X402 | CHAIN: BASE
           </p>
         </div>
 
@@ -165,10 +171,10 @@ export default function Home() {
           <div className="relative">
             <input
               type="text"
-              placeholder="Search builders..."
+              placeholder="> SEARCH_BUILDERS..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-surface text-text-primary px-4 py-3 pl-12 rounded-lg border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+              className="w-full bg-surface text-primary px-4 py-3 pl-12 rounded border-2 border-primary/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200 font-mono terminal-border"
             />
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary" />
           </div>
@@ -176,44 +182,46 @@ export default function Home() {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-surface p-6 rounded-lg border border-primary/10">
+          <div className="bg-surface p-6 rounded border-2 border-primary/40 terminal-border hover:border-primary transition-all duration-200">
             <div className="flex items-center gap-3 mb-2">
               <TrendingUp className="w-5 h-5 text-success" />
-              <span className="text-text-secondary text-sm">Total Builders</span>
+              <span className="text-text-secondary text-sm font-mono">TOTAL_BUILDERS</span>
             </div>
-            <p className="text-2xl font-bold text-text-primary">1,245</p>
+            <p className="text-2xl font-bold text-primary font-mono terminal-glow">1,245</p>
           </div>
-          <div className="bg-surface p-6 rounded-lg border border-primary/10">
+          <div className="bg-surface p-6 rounded border-2 border-primary/40 terminal-border hover:border-primary transition-all duration-200">
             <div className="flex items-center gap-3 mb-2">
-              <Award className="w-5 h-5 text-primary" />
-              <span className="text-text-secondary text-sm">Avg Trust Score</span>
+              <Award className="w-5 h-5 text-accent" />
+              <span className="text-text-secondary text-sm font-mono">AVG_TRUST_SCORE</span>
             </div>
-            <p className="text-2xl font-bold text-text-primary">6.8</p>
+            <p className="text-2xl font-bold text-accent font-mono terminal-glow">6.8</p>
           </div>
-          <div className="bg-surface p-6 rounded-lg border border-primary/10">
+          <div className="bg-surface p-6 rounded border-2 border-primary/40 terminal-border hover:border-primary transition-all duration-200">
             <div className="flex items-center gap-3 mb-2">
               <DollarSign className="w-5 h-5 text-warning" />
-              <span className="text-text-secondary text-sm">Total Tips</span>
+              <span className="text-text-secondary text-sm font-mono">TOTAL_TIPS_USDC</span>
             </div>
-            <p className="text-2xl font-bold text-text-primary">$45.2K</p>
+            <p className="text-2xl font-bold text-warning font-mono terminal-glow">$45.2K</p>
           </div>
         </div>
 
         {/* Table Header */}
-        <div className="bg-surface rounded-t-lg border border-primary/10 overflow-hidden">
-          <div className="grid grid-cols-12 gap-4 px-6 py-4 text-sm font-medium text-text-secondary border-b border-primary/10">
-            <div className="col-span-3">Coin Name</div>
-            <div className="col-span-2">Projects</div>
-            <div className="col-span-1">Symbol</div>
-            <div className="col-span-1">Price</div>
-            <div className="col-span-1">Price ↑</div>
-            <div className="col-span-2">Trust Score</div>
-            <div className="col-span-1">Volume</div>
-            <div className="col-span-1">Tips</div>
+        <div className="bg-surface rounded-lg border-2 border-primary/40 overflow-hidden terminal-border">
+          <div className="bg-primary/10 border-b-2 border-primary/40">
+            <div className="grid grid-cols-12 gap-4 px-6 py-4 text-sm font-bold text-primary font-mono">
+              <div className="col-span-3">{'>'} COIN_NAME</div>
+              <div className="col-span-2">PROJECTS</div>
+              <div className="col-span-1">SYMBOL</div>
+              <div className="col-span-1">PRICE</div>
+              <div className="col-span-1">VOLUME</div>
+              <div className="col-span-2">TRUST_SCORE</div>
+              <div className="col-span-1">MCAP</div>
+              <div className="col-span-1">TIPS</div>
+            </div>
           </div>
 
           {/* Builder List */}
-          <div className="divide-y divide-primary/10">
+          <div className="divide-y divide-primary/20">
             {filteredBuilders.map((builder) => (
               <BuilderCard key={builder.id} builder={builder} />
             ))}
@@ -222,8 +230,8 @@ export default function Home() {
 
         {/* Empty State */}
         {filteredBuilders.length === 0 && (
-          <div className="text-center py-12 bg-surface rounded-b-lg border border-t-0 border-primary/10">
-            <p className="text-text-secondary">No builders found matching your search.</p>
+          <div className="text-center py-12 bg-surface rounded-b-lg border-2 border-t-0 border-primary/40">
+            <p className="text-text-secondary font-mono">{'>'} NO_RESULTS_FOUND</p>
           </div>
         )}
       </div>
